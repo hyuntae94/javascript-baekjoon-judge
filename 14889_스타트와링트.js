@@ -16,36 +16,26 @@
 //     }
 // }
 // combi1(0,[]);
+
 // let abilty = [];
 
-// combiArr.forEach(v => {
-//     let arr = v; 
+// function totalAbilty(team){
+//     let ret = 0;
 
-//     let answer = [];
-//     let ret = [];
-
-//     function combi(index,start){
-//         if(index == 2){
-//             answer.push(ret.slice());
-//             return ;
-//         }
-
-//         for(let i=start; i<v.length; i++){
-//             ret[index] = arr[i];
-//             combi(index+1,i+1);
+//     for(let i=0; i<team.length; i++){
+//         for(let j=0; j<team.length; j++){
+//             ret += input[team[i]][team[j]];
 //         }
 //     }
-//     combi(0,0)
-//     let totalAbilty = 0;
+//     return ret;
+// }
 
-//     answer.forEach((v) => {
-//         totalAbilty += input[v[0]][v[1]] + input[v[1]][v[0]];
-//     })
-//     abilty.push(totalAbilty);
+// combiArr.forEach(team => {
+//     abilty.push(totalAbilty(team))
 // })
+
 // //능력치 중 차이가 가장 작은 값 계산
-// let min = 999999999999999;
-// console.log(abilty);
+// let min = Number.MAX_VALUE;
 // for (let i=0; i<abilty.length / 2 ; i++){
 //     let different = Math.abs(abilty[i]-abilty[abilty.length-1-i]);
 //     min = Math.min(min,different);
@@ -72,7 +62,7 @@ const go = (id) => {
     if (id == memberAmount) {
         
         if (teamA.length != memberAmount / 2) return;
-
+        console.log(teamA,teamB)
         const scoreA = getScore(map, teamA);
         const scoreB = getScore(map, teamB);
         const diff = Math.abs(scoreA - scoreB);
@@ -81,6 +71,7 @@ const go = (id) => {
     }
 
     teamA.push(id);
+    // console.log(teamA);
     go(id + 1);
     teamA.pop();
 
@@ -101,4 +92,4 @@ const solution = (input) => {
 
 const input = '4\n0 1 2 3\n4 0 5 6\n7 1 0 2\n3 4 5 0'.toString().trim().split('\n');
 const result = solution(input);
-console.log(result);
+// console.log(result);
