@@ -1,3 +1,4 @@
+// const start = new Date().getTime();
 // let input = '4\n0 1 2 3\n4 0 5 6\n7 1 0 2\n3 4 5 0'.toString().trim().split('\n').map(v => v.split(' ').map(Number));
 // let N = input.shift();
 
@@ -42,8 +43,10 @@
 // }
 
 // console.log(min);
+// const end = new Date().getTime();
+// console.log(end-start);
 
-// let fs = require('fs');
+const start = new Date().getTime();
 
 let memberAmount = 0, min = Number.MAX_VALUE;
 let map = [], teamA = [], teamB = [];
@@ -93,3 +96,5 @@ const solution = (input) => {
 const input = '4\n0 1 2 3\n4 0 5 6\n7 1 0 2\n3 4 5 0'.toString().trim().split('\n');
 const result = solution(input);
 // console.log(result);
+const end = new Date().getTime();
+console.log(end-start);
