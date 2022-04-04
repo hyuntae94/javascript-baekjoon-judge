@@ -1,9 +1,5 @@
-let variables = require('fs').readFileSync('./dev/stdin').toString().trim().split('\n');
-let N = +variables[0];
-let input = [];
-for(let i=1; i<variables.length; i++){
-    input.push(variables[i].split(' ').map(Number))
-}
+let [N, ...input] = require('fs').readFileSync('./dev/stdin').toString().trim()
+                        .split('\n').map((v,i)=> i === 0 ? +v : v.split(' ').map(Number));
 
 let visit = new Array(4).fill(0);
 let array = [];
@@ -18,9 +14,13 @@ function cal_routeValue(route){
     if (!input[route[route.length-1]][route[0]]) return Number.MAX_SAFE_INTEGER;
     else sum += input[route[route.length-1]][route[0]];
 
+    if (sum > min) return sum;
+
     for(let i=0; i<route.length-1; i++){
         if (!input[route[i]][route[i+1]]) return Number.MAX_SAFE_INTEGER;
         sum += input[route[i]][route[i+1]];
+
+        if (sum > min) return sum;
     }
     return sum;
 }

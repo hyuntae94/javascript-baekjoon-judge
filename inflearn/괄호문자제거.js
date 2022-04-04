@@ -1,20 +1,21 @@
-function solution(param){
-    let stack = [];
-    let left = 0;
+// function solution(param){
+//     let stack = [];
+//     let left = 0;
 
-    for(let x of param){
-        if (x === '(') left ++;
+//     for(let x of param){
+//         if (x === '(') left ++;
         
-        if (x !== ')') stack.push(x);
-        else if (x ===')' && left > 0){
-            while(stack.pop() !== '('){}
-            left--;
-        }
-    }
-    return stack.join('').replace(/\(/g,'');
-}
+//         if (x !== ')') stack.push(x);
 
-// 참고한 코드
+//         else if (x ===')' && left > 0){
+//             while(stack.pop() !== '('){}
+//             left--;
+//         }
+//     }
+//     return stack.join('').replace(/\(/g,'');
+// }
+
+// // 참고한 코드
 // function solution(str) {
 //     let res = '';
 //     let stack = [];
@@ -29,5 +30,6 @@ function solution(param){
 // }
 // let str="(A(BC)D)EF(G(H)(IJ)K)LM(N)";
 // let str="KKK)LM(N)";
-let str="KKK)((((LM)(N)AB";
+// let str="KKK)((((LM)(N)AB";
+let str="KKK(LM";
 console.log(solution(str));
