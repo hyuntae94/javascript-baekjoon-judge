@@ -1,5 +1,5 @@
-let [N,...rgb] = require('fs').readFileSync('./dev/stdin').toString().trim().split('\n').map((el,idx) => idx===0 ? +el : el.split(' ').map(Number));
-// let [N,...rgb] = '3\n26 40 83\n49 60 57\n13 89 99'.toString().trim().split('\n').map((el,idx) => idx===0 ? +el : el.split(' ').map(Number));
+// let [N,...rgb] = require('fs').readFileSync('./dev/stdin').toString().trim().split('\n').map((el,idx) => idx===0 ? +el : el.split(' ').map(Number));
+let [N,...rgb] = '3\n26 40 83\n49 60 57\n13 89 99'.toString().trim().split('\n').map((el,idx) => idx===0 ? +el : el.split(' ').map(Number));
 
 const dp = Array.from( {length: N} , ()=> new Array(3).fill(0));
 dp[0][0] = rgb[0][0];
