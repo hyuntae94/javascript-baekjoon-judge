@@ -1,7 +1,6 @@
-let array = [1,2,3,4];
-let visit = new Array(4).fill(0);
+let array = [1,2,3,4,5,6,7];
 function combination(tmp,start,index){
-    if(index == 2){
+    if(index == 6){
         console.log(tmp)
         return ;
     }
@@ -10,6 +9,9 @@ function combination(tmp,start,index){
             combination(tmp,i+1,index+1);
         }
 }
+
+let visit = new Array(4).fill(0);
+
 function permutation(tmp,index){
     if(index == 4){
         console.log(tmp);
@@ -26,4 +28,4 @@ function permutation(tmp,index){
 }
 
 combination([],0,0)
-permutation([],0);
+// permutation([],0);
