@@ -2,8 +2,6 @@ const [[N,M],...map] = '4 6\n0 0 0 0 0 0\n1 0 0 0 0 2\n1 1 1 0 0 2\n0 0 0 0 0 2'
 // const [[N,M],...map] = require('fs').readFileSync('./dev/stdin').toString()
 .split('\n').map(el => el.split(' ').map(Number));
 
-console.log(N,M,map);
-
 let wallCount = 3;
 let safeMax = Number.MIN_SAFE_INTEGER;
 
