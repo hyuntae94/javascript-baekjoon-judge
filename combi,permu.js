@@ -1,4 +1,4 @@
-let array = [1,2,3,4,5,6,7];
+let array = [1,2,3,4];
 function combination(tmp,start,index){
     if(index == 6){
         console.log(tmp)
@@ -13,7 +13,7 @@ function combination(tmp,start,index){
 let visit = new Array(4).fill(0);
 
 function permutation(tmp,index){
-    if(index == 4){
+    if(index == 2){
         console.log(tmp);
         return ;
     }
@@ -27,5 +27,5 @@ function permutation(tmp,index){
     }
 }
 
-combination([],0,0)
-// permutation([],0);
+// combination([],0,0)
+permutation([],0);
