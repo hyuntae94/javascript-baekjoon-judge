@@ -1,11 +1,11 @@
-// const [[N,M,K],...map] = `6 4 2
-// 0100
-// 1110
-// 1000
-// 0000
-// 0111
-// 0000`.toString().split('\n').map((el,idx) => idx === 0 ? el.split(' ').map(Number) : el.split('').map(Number));
-const [[N,M,K],...map] = require('fs').readFileSync('./dev/stdin').toString().split('\n').map((el,idx) => idx === 0 ? el.split(' ').map(Number) : el.split('').map(Number));
+const [[N,M,K],...map] = `6 4 1
+0100
+1110
+1000
+0000
+0111
+0000`.toString().split('\n').map((el,idx) => idx === 0 ? el.split(' ').map(Number) : el.split('').map(Number));
+// const [[N,M,K],...map] = require('fs').readFileSync('./dev/stdin').toString().split('\n').map((el,idx) => idx === 0 ? el.split(' ').map(Number) : el.split('').map(Number));
 const dx = [-1,0,1,0];
 const dy = [0,1,0,-1];
 
