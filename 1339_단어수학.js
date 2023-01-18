@@ -1,60 +1,36 @@
-// const [N,...input]= '2\nGCF\nACDEB'.toString()
-// const [N,...input]= '2\nAAA\nAAA'.toString()
-const [N,...input]= '10\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ'.toString()
-// const [N,...input]= require('fs').readFileSync('./dev/stdin).toString()
-.split('\n').map((v,i)=> i === 0 ? +v : v.split(''));
+const [N, ...input] = require("fs")
+  .readFileSync("./dev/stdin")
+  .toString()
+  .trim()
+  .split("\n")
+  .map((el, idx) => (idx === 0 ? +el : el.split("")));
 
-let numberList = [9,8,7,6,5,4,3,2,1,0];
-let alphet = input.reduce((acc,val)=> [...new Set(acc.concat(val))] , []);
-let alphetCount = alphet.length;
-let max = Number.MIN_SAFE_INTEGER;
+const map = new Map();
 
-numberList = numberList.slice(0,alphetCount);
+input.forEach((el) => {
+  el.forEach((alpha, idx) => {
+    const number = Math.pow(10, el.length - 1 - idx);
+    if (!map.has(alpha)) map.set(alpha, number);
+    else map.set(alpha, map.get(alpha) + number);
+  });
+});
 
-//최대값 구하는 식
+const sortedArr = [...map].sort((a, b) => b[1] - a[1]);
+const sortedMap = new Map();
+let start = 9;
+sortedArr.forEach((el) => {
+  sortedMap.set(el[0], start);
+  start -= 1;
+});
 
-function sumAlphet(array)
-{
-    let sum = 0;
-    for(let word of input)
-    {
-        let tmp = '';
-        for(let alpa of word)
-        {
-            let idx = alphet.findIndex(el => el === alpa);
-            tmp += array[idx];
-        }
-        sum += Number(tmp);
-    }
+let answer = 0;
 
-    if (max < sum) max = sum;
-}
-
-
-//순열
-const visited = new Array(numberList.length).fill(0);
-
-function permutation(array, index){
-
-    if (index === numberList.length)
-    {
-        //각각의 알파벳에 숫자할당하고 계산하는 함수
-        sumAlphet(array);
-        return ;
-    }
-    for(let i=0; i<numberList.length; i++)
-    {
-        if (!visited[i])
-        {
-            visited[i] = 1;
-            array[index] = numberList[i];
-            permutation(array, index+1);
-            visited[i] = 0;
-        }
-    }
-}
-
-permutation([],0)
-
-console.log(max)
-
+input.forEach((el) => {
+  let tmp = "";
+  el.forEach((alpha) => {
+    const num = sortedMap.get(alpha);
+    tmp += num;
+  });
+  answer += +tmp;
+});
+console.log(answer);
